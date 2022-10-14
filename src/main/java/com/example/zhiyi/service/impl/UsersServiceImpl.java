@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
+import java.util.Date;
 
 @Service
 public class UsersServiceImpl implements UsersService {
@@ -19,6 +20,7 @@ public class UsersServiceImpl implements UsersService {
     
     @Override
     public Users save(Users users) {
+        users.setCreatedDate(new Date());
         Users saveUsers = this.usersRepository.save(users);
         return saveUsers;
     }
